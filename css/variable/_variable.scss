@@ -1,0 +1,86 @@
+$White: hsl(0, 0%, 100%);
+$black: hsl(0, 0%, 0%);
+$DarkGray: hsl(0, 0%, 55%);
+$VeryDarkGray: hsl(0, 0%, 41%);
+// for devices 
+$phone:768px;
+$ipad:992px;
+// flex
+@mixin flexes($justify, $align, $dir) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    @if $dir==column {
+        flex-direction: column;
+    }
+}
+
+//translate to make anything in center position
+%translateCenter {
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+
+%AnyBtn {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+// for images 
+@mixin coverImg($url) {
+    background-image: url($url);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+// position 
+@mixin position($position, $top, $right, $bottom, $left) {
+    position: $position;
+    top: $top;
+    left: $left;
+    bottom: $bottom;
+    right: $right;
+}
+
+@function posit($position) {
+    @if($position==abs) {
+        @return absolute;
+    }
+    ;
+    @if($position==rela) {
+        @return relative;
+    }
+    ;
+    @if($position==fix) {
+        @return fixed;
+    }
+    ;
+}
+
+@mixin widthHeight($height, $width) {
+    height: $height;
+    width: $width;
+}
+
+// font weight
+@function weight($every) {
+    @if ($every==small) {
+        @return 300
+    }
+    ;
+    @if ($every==regular) {
+        @return 400
+    }
+    ;
+    @if($every==regular_) {
+        @return 600
+    }
+    ;
+    @if ($every==bold) {
+        @return 900
+    }
+}
